@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Inspecta — Inteligência para Engenharia</title>
 
-<link rel="icon" href="/inspecta-logo-final.svg">
+<link rel="icon" type="image/svg+xml" href="/inspecta-logo-final.svg">
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+
 body{
 background:#0a0c10;
 color:white;
@@ -24,6 +26,23 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:40px 20px;
+position:relative;
+overflow:hidden;
+}
+
+.hero img{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.15;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
 }
 
 .button-primary{
@@ -64,7 +83,9 @@ gap:10px;
 font-weight:700;
 font-size:18px;
 }
+
 </style>
+
 </head>
 
 <body>
@@ -74,7 +95,7 @@ font-size:18px;
 <header class="nav">
 
 <div class="logo">
-<img src="/inspecta-logo-final.svg" width="32">
+<img src="/inspecta-logo-final.svg" width="32" alt="Inspecta Logo">
 <span>Inspecta</span>
 </div>
 
@@ -97,7 +118,9 @@ Testar gratuitamente
 
 <section class="hero">
 
-<div>
+<img src="/herói-engenheiro.jpg" alt="Engenharia com IA">
+
+<div class="hero-content">
 
 <h1 style="font-size:48px; font-weight:800; margin-bottom:20px">
 Inteligência Artificial para<br>Engenharia
@@ -107,7 +130,7 @@ Inteligência Artificial para<br>Engenharia
 Automatize análise de projetos, documentos técnicos e inspeções com IA.
 </p>
 
-<div style="display:flex; gap:15px; justify-content:center">
+<div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap">
 
 <a href="/login" class="button-primary">
 Testar gratuitamente
@@ -137,30 +160,39 @@ O que o Inspecta faz
 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px">
 
 <div style="background:#111827; padding:25px; border-radius:12px">
+
 <h3 style="font-weight:600; margin-bottom:10px">
 Análise de Projetos
 </h3>
+
 <p style="color:#9ca3af">
 IA revisa documentos técnicos automaticamente.
 </p>
+
 </div>
 
 <div style="background:#111827; padding:25px; border-radius:12px">
+
 <h3 style="font-weight:600; margin-bottom:10px">
 Inspeções Inteligentes
 </h3>
+
 <p style="color:#9ca3af">
 Detecte inconsistências em plantas e relatórios.
 </p>
+
 </div>
 
 <div style="background:#111827; padding:25px; border-radius:12px">
+
 <h3 style="font-weight:600; margin-bottom:10px">
 Automação
 </h3>
+
 <p style="color:#9ca3af">
 Reduza horas de revisão manual.
 </p>
+
 </div>
 
 </div>

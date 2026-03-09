@@ -1,246 +1,196 @@
-import heroImg from '@/assets/hero-engineer.jpg'
-import { FileText, Camera, Smartphone, Monitor, AlertTriangle, Clock, CheckCircle2, ArrowRight, Building2, Zap } from 'lucide-react'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inspecta</title>
 
-const PAINS = [
-  {
-    icon: FileText,
-    title: 'Horas perdidas editando Word',
-    desc: 'Formatar tabelas, colar fotos, ajustar numeração... Você passa mais tempo no Word do que analisando as patologias.',
-  },
-  {
-    icon: Camera,
-    title: 'Caos nas fotos de campo',
-    desc: 'Centenas de fotos na galeria sem ordem, sem legenda, misturadas com fotos pessoais. Qual era a foto da fachada norte mesmo?',
-  },
-  {
-    icon: Clock,
-    title: 'Laudo que deveria levar 1h leva 1 dia',
-    desc: 'Cada relatório começa do zero. Copiar e colar do laudo anterior, corrigir o nome do cliente, refazer o cabeçalho.',
-  },
-]
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 
-const FEATURES = [
-  {
-    icon: Smartphone,
-    title: 'Inspeção pelo celular, em campo',
-    desc: 'Abra o app no canteiro, registre cada manifestação patológica com foto, legenda e descrição. Tudo organizado por área, em tempo real.',
-  },
-  {
-    icon: Monitor,
-    title: 'Laudo pronto no computador',
-    desc: 'Acesse a versão web, revise os dados e gere o laudo em Word com um clique. Cabeçalho, rodapé, tabela GUT, fotos numeradas — tudo automático.',
-  },
-  {
-    icon: Zap,
-    title: 'Geração automática de documentos',
-    desc: 'O Inspecta monta o documento técnico completo: capa, objetivo, diligências, manifestações, encerramento e assinatura. Você só revisa.',
-  },
-  {
-    icon: Building2,
-    title: 'Inspeção predial e vistoria cautelar',
-    desc: 'Suporte a laudo de inspeção predial (com GUT) e laudo de vistoria cautelar de vizinhança. Cada fluxo com seu modelo específico.',
-  },
-]
+</head>
 
-const HOW = [
-  { step: '01', title: 'Cadastre a edificação', desc: 'Nome, endereço, engenheiro responsável, fotos frontal e aérea.' },
-  { step: '02', title: 'Registre as áreas em campo', desc: 'Use o celular para adicionar áreas, manifestações e fotos com legenda.' },
-  { step: '03', title: 'Gere o laudo com 1 clique', desc: 'Acesse a web, ajuste os dados complementares e baixe o .docx pronto.' },
-]
+<body class="min-h-screen bg-[#0a0c10] text-white font-sans">
 
-export default function LandingPage() {
-  const whatsapp = 'https://wa.me/5581983800274'
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5581983800274" target="_blank"
+class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+style="background:#25D366">
 
-  return (
-    <div className="min-h-screen bg-[#0a0c10] text-white font-sans" translate="no" lang="pt-BR">
-      {/* WHATSAPP FLOAT */}
-      <a href={whatsapp} target="_blank" rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-        style={{ backgroundColor: '#25D366' }}
-        aria-label="Falar no WhatsApp"
-      >
-        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      </a>
+<svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+</svg>
 
-      {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#0a0c10]/90 backdrop-blur-md border-b border-white/5">
-        <div className="flex items-center gap-2">
-          <img src="/inspecta-logo-dark.png" alt="Inspecta" className="h-12" />
-        </div>
-        <a
-          href="https://appinspecta.com.br"
-          target="_blank" rel="noopener noreferrer"
-          className="bg-[#FF4500] text-white rounded-xl px-5 py-2 text-sm font-bold hover:bg-[#e03d00] transition-colors"
-        >
-          Entrar no app
-        </a>
-      </nav>
+</a>
 
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center pt-20">
-        <div className="absolute inset-0 overflow-hidden">
-          <img src={heroImg} alt="Engenheiro em campo" className="w-full h-full object-cover object-top opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0c10] via-[#0a0c10]/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c10] via-transparent to-transparent" />
-        </div>
+<!-- NAV -->
 
-        <div className="relative max-w-5xl mx-auto px-6 py-20">
-          <div className="inline-flex items-center gap-2 bg-[#FF4500]/10 border border-[#FF4500]/30 rounded-full px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#FF4500] animate-pulse" />
-            <span className="text-[#FF4500] text-xs font-semibold tracking-wide uppercase">Para Engenheiros e Arquitetos</span>
-          </div>
+<nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#0a0c10]/90 backdrop-blur-md border-b border-white/5">
 
-          <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-            Chega de<br />
-            <span className="text-[#FF4500]">perder tempo</span><br />
-            com Word.
-          </h1>
+<img src="inspecta-logo-dark.png" class="h-12">
 
-          <p className="text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
-            O Inspecta transforma sua inspeção de campo em laudo técnico profissional. 
-            Celular em campo. Web no escritório. Laudo em segundos.
-          </p>
+<a href="https://appinspecta.com.br"
+class="bg-[#FF4500] text-white rounded-xl px-5 py-2 text-sm font-bold hover:bg-[#e03d00]">
+Entrar no app
+</a>
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="https://appinspecta.com.br"
-              target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#FF4500] text-white rounded-2xl px-8 py-4 text-base font-bold hover:bg-[#e03d00] transition-colors"
-            >
-              Testar gratuitamente <ArrowRight size={18} />
-            </a>
-          </div>
+</nav>
 
-          <div className="flex items-center gap-6 mt-10">
-            {[
-              { icon: CheckCircle2, text: 'Sem instalação' },
-              { icon: CheckCircle2, text: 'Funciona no celular' },
-              { icon: CheckCircle2, text: 'Laudo em Word' },
-            ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-1.5 text-white/50 text-sm">
-                <Icon size={14} className="text-[#FF4500]" />
-                {text}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+<!-- HERO -->
 
-      {/* DORES */}
-      <section className="py-24 bg-[#0d0f13]">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <AlertTriangle size={18} className="text-[#FF4500]" />
-              <span className="text-[#FF4500] text-sm font-bold uppercase tracking-widest">Reconhece isso?</span>
-            </div>
-            <h2 className="text-4xl font-black">A realidade de quem faz inspeção</h2>
-          </div>
+<section class="relative min-h-screen flex items-center pt-20">
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {PAINS.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-[#13161c] border border-white/5 rounded-2xl p-6 hover:border-[#FF4500]/20 transition-colors">
-                <div className="w-11 h-11 rounded-xl bg-[#FF4500]/10 flex items-center justify-center mb-4">
-                  <Icon size={20} className="text-[#FF4500]" />
-                </div>
-                <h3 className="text-base font-bold mb-2">{title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+<div class="absolute inset-0">
 
-      {/* SOLUÇÃO */}
-      <section className="py-24">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <span className="text-[#FF4500] text-sm font-bold uppercase tracking-widest">A solução</span>
-            <h2 className="text-4xl font-black mt-2">Como o Inspecta funciona</h2>
-          </div>
+<img src="hero-engineer.jpg"
+class="w-full h-full object-cover object-top opacity-25">
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {FEATURES.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex gap-4 bg-[#13161c] border border-white/5 rounded-2xl p-6 hover:border-[#FF4500]/20 transition-colors">
-                <div className="w-11 h-11 rounded-xl bg-[#FF4500]/10 flex items-center justify-center shrink-0">
-                  <Icon size={20} className="text-[#FF4500]" />
-                </div>
-                <div>
-                  <h3 className="text-base font-bold mb-1.5">{title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+<div class="absolute inset-0 bg-gradient-to-r from-[#0a0c10] via-[#0a0c10]/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0c10] via-transparent to-transparent"></div>
 
-      {/* COMO FUNCIONA */}
-      <section className="py-24 bg-[#0d0f13]">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <span className="text-[#FF4500] text-sm font-bold uppercase tracking-widest">Passo a passo</span>
-            <h2 className="text-4xl font-black mt-2">Em 3 passos, laudo pronto</h2>
-          </div>
+</div>
 
-          <div className="space-y-4">
-            {HOW.map(({ step, title, desc }, i) => (
-              <div key={step} className="flex items-start gap-5 bg-[#13161c] border border-white/5 rounded-2xl p-6">
-                <span className="text-4xl font-black text-[#FF4500]/20 leading-none">{step}</span>
-                <div>
-                  <h3 className="text-base font-bold mb-1">{title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+<div class="relative max-w-5xl mx-auto px-6 py-20">
 
-      {/* FLUXO CAMPO ↔ WEB */}
-      <section className="py-24">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-3xl bg-gradient-to-br from-[#FF4500]/10 to-[#FF4500]/5 border border-[#FF4500]/20 p-10 md:p-14 text-center">
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
-              Celular no campo.<br />
-              <span className="text-[#FF4500]">Web no escritório.</span>
-            </h2>
-            <p className="text-white/60 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-              Inspecione com o celular, registre fotos e manifestações em tempo real. 
-              Depois, acesse pelo computador, revise e gere o laudo em Word com um único clique.
-            </p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-10">
-              <div className="flex items-center gap-3 bg-white/5 rounded-xl px-5 py-3">
-                <Smartphone size={20} className="text-[#FF4500]" />
-                <span className="text-sm font-semibold">App móvel para campo</span>
-              </div>
-              <ArrowRight size={20} className="text-[#FF4500] hidden md:block" />
-              <div className="flex items-center gap-3 bg-white/5 rounded-xl px-5 py-3">
-                <Monitor size={20} className="text-[#FF4500]" />
-                <span className="text-sm font-semibold">Web para gerar o laudo</span>
-              </div>
-              <ArrowRight size={20} className="text-[#FF4500] hidden md:block" />
-              <div className="flex items-center gap-3 bg-white/5 rounded-xl px-5 py-3">
-                <FileText size={20} className="text-[#FF4500]" />
-                <span className="text-sm font-semibold">Laudo .docx profissional</span>
-              </div>
-            </div>
-            <a
-              href="https://appinspecta.com.br"
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#FF4500] text-white rounded-2xl px-10 py-4 text-base font-bold hover:bg-[#e03d00] transition-colors"
-            >
-              Começar agora — é grátis <ArrowRight size={18} />
-            </a>
-          </div>
-        </div>
-      </section>
+<div class="inline-flex items-center gap-2 bg-[#FF4500]/10 border border-[#FF4500]/30 rounded-full px-4 py-1.5 mb-6">
 
-      {/* FOOTER */}
-      <footer className="border-t border-white/5 py-10 text-center text-white/30 text-sm">
-        <img src="/inspecta-logo-dark.png" alt="Inspecta" className="h-9 mx-auto mb-4 opacity-40" />
-        <p>© {new Date().getFullYear()} Inspecta. Todos os direitos reservados.</p>
-      </footer>
-    </div>
-  )
-}
+<span class="w-2 h-2 rounded-full bg-[#FF4500] animate-pulse"></span>
+
+<span class="text-[#FF4500] text-xs font-semibold uppercase">
+Para Engenheiros e Arquitetos
+</span>
+
+</div>
+
+<h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+Chega de<br>
+<span class="text-[#FF4500]">perder tempo</span><br>
+com Word.
+</h1>
+
+<p class="text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
+O Inspecta transforma sua inspeção de campo em laudo técnico profissional.
+Celular em campo. Web no escritório. Laudo em segundos.
+</p>
+
+<a href="https://appinspecta.com.br"
+class="inline-flex items-center gap-2 bg-[#FF4500] text-white rounded-2xl px-8 py-4 font-bold hover:bg-[#e03d00]">
+
+Testar gratuitamente →
+
+</a>
+
+</div>
+
+</section>
+
+<!-- DORES -->
+
+<section class="py-24 bg-[#0d0f13]">
+
+<div class="max-w-5xl mx-auto px-6">
+
+<div class="text-center mb-14">
+
+<p class="text-[#FF4500] text-sm font-bold uppercase">
+Reconhece isso?
+</p>
+
+<h2 class="text-4xl font-black mt-2">
+A realidade de quem faz inspeção
+</h2>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="bg-[#13161c] border border-white/5 rounded-2xl p-6">
+
+<h3 class="font-bold mb-2">
+Horas perdidas editando Word
+</h3>
+
+<p class="text-white/50 text-sm">
+Formatar tabelas, colar fotos, ajustar numeração...
+</p>
+
+</div>
+
+<div class="bg-[#13161c] border border-white/5 rounded-2xl p-6">
+
+<h3 class="font-bold mb-2">
+Caos nas fotos de campo
+</h3>
+
+<p class="text-white/50 text-sm">
+Centenas de fotos na galeria sem organização.
+</p>
+
+</div>
+
+<div class="bg-[#13161c] border border-white/5 rounded-2xl p-6">
+
+<h3 class="font-bold mb-2">
+Laudo que deveria levar 1h leva 1 dia
+</h3>
+
+<p class="text-white/50 text-sm">
+Copiar e colar do laudo anterior toda vez.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA FINAL -->
+
+<section class="py-24">
+
+<div class="max-w-5xl mx-auto px-6">
+
+<div class="rounded-3xl bg-gradient-to-br from-[#FF4500]/10 to-[#FF4500]/5 border border-[#FF4500]/20 p-12 text-center">
+
+<h2 class="text-4xl font-black mb-4">
+
+Celular no campo.<br>
+<span class="text-[#FF4500]">Web no escritório.</span>
+
+</h2>
+
+<p class="text-white/60 text-lg max-w-xl mx-auto mb-8">
+
+Inspecione com o celular e gere o laudo com um clique.
+
+</p>
+
+<a href="https://appinspecta.com.br"
+class="inline-block bg-[#FF4500] px-10 py-4 rounded-2xl font-bold hover:bg-[#e03d00]">
+
+Começar agora — é grátis
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="border-t border-white/5 py-10 text-center text-white/30 text-sm">
+
+<img src="inspecta-logo-dark.png" class="h-9 mx-auto mb-4 opacity-40">
+
+<p>© 2026 Inspecta. Todos os direitos reservados.</p>
+
+</footer>
+
+<script>
+lucide.createIcons();
+</script>
+
+</body>
+</html>

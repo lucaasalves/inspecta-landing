@@ -11,133 +11,97 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-
-body{
-background:#0a0c10;
-color:white;
-font-family:system-ui;
-}
-
-.hero{
-min-height:90vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:40px 20px;
-position:relative;
-overflow:hidden;
-}
-
-.hero img{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0.15;
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-}
-
-.button-primary{
-background:#2563eb;
-padding:14px 28px;
-border-radius:10px;
-font-weight:600;
-transition:0.2s;
-}
-
-.button-primary:hover{
-background:#1d4ed8;
-}
-
-.button-secondary{
-border:1px solid #374151;
-padding:14px 28px;
-border-radius:10px;
-font-weight:600;
-transition:0.2s;
-}
-
-.button-secondary:hover{
-background:#111827;
-}
-
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-weight:700;
-font-size:18px;
-}
-
-</style>
-
 </head>
 
-<body>
+<body class="min-h-screen bg-[#0a0c10] text-white font-sans">
 
-<!-- NAVBAR -->
+<!-- WHATSAPP FLOAT -->
 
-<header class="nav">
+<a
+href="https://wa.me/5581983800274"
+target="_blank"
+class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+style="background-color:#25D366"
+>
 
-<div class="logo">
-<img src="/inspecta-logo-final.svg" width="32" alt="Inspecta Logo">
-<span>Inspecta</span>
+<svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+</svg>
+
+</a>
+
+<!-- NAV -->
+
+<nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#0a0c10]/90 backdrop-blur-md border-b border-white/5">
+
+<div class="flex items-center gap-2">
+
+<img src="/inspecta-logo-final.svg" class="h-12"/>
+
 </div>
 
-<div style="display:flex; gap:15px">
-
-<a href="/login" class="button-secondary">
+<a
+href="/login"
+class="bg-[#FF4500] text-white rounded-xl px-5 py-2 text-sm font-bold hover:bg-[#e03d00] transition-colors"
+>
 Entrar no app
 </a>
 
-<a href="/login" class="button-primary">
-Testar gratuitamente
-</a>
-
-</div>
-
-</header>
-
+</nav>
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="relative min-h-screen flex items-center pt-20">
 
-<img src="/herói-engenheiro.jpg" alt="Engenharia com IA">
+<div class="absolute inset-0 overflow-hidden">
 
-<div class="hero-content">
+<img
+src="/herói-engenheiro.jpg"
+class="w-full h-full object-cover object-top opacity-25"
+/>
 
-<h1 style="font-size:48px; font-weight:800; margin-bottom:20px">
-Inteligência Artificial para<br>Engenharia
+<div class="absolute inset-0 bg-gradient-to-r from-[#0a0c10] via-[#0a0c10]/80 to-transparent"></div>
+
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0c10] via-transparent to-transparent"></div>
+
+</div>
+
+<div class="relative max-w-5xl mx-auto px-6 py-20">
+
+<div class="inline-flex items-center gap-2 bg-[#FF4500]/10 border border-[#FF4500]/30 rounded-full px-4 py-1.5 mb-6">
+
+<span class="w-2 h-2 rounded-full bg-[#FF4500] animate-pulse"></span>
+
+<span class="text-[#FF4500] text-xs font-semibold tracking-wide uppercase">
+Para Engenheiros e Arquitetos
+</span>
+
+</div>
+
+<h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+
+Chega de<br>
+<span class="text-[#FF4500]">perder tempo</span><br>
+com Word.
+
 </h1>
 
-<p style="max-width:600px; margin:auto; margin-bottom:30px; color:#9ca3af">
-Automatize análise de projetos, documentos técnicos e inspeções com IA.
+<p class="text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
+
+O Inspecta transforma sua inspeção de campo em laudo técnico profissional.
+Celular em campo. Web no escritório. Laudo em segundos.
+
 </p>
 
-<div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap">
+<div class="flex flex-col sm:flex-row gap-3">
 
-<a href="/login" class="button-primary">
-Testar gratuitamente
-</a>
+<a
+href="/login"
+class="flex items-center justify-center gap-2 bg-[#FF4500] text-white rounded-2xl px-8 py-4 text-base font-bold hover:bg-[#e03d00] transition-colors"
+>
 
-<a href="/login" class="button-secondary">
-Entrar no app
+Testar gratuitamente →
+
 </a>
 
 </div>
@@ -145,68 +109,14 @@ Entrar no app
 </div>
 
 </section>
-
-
-<!-- FEATURES -->
-
-<section style="padding:80px 20px">
-
-<div style="max-width:1000px; margin:auto">
-
-<h2 style="font-size:32px; font-weight:700; text-align:center; margin-bottom:50px">
-O que o Inspecta faz
-</h2>
-
-<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px">
-
-<div style="background:#111827; padding:25px; border-radius:12px">
-
-<h3 style="font-weight:600; margin-bottom:10px">
-Análise de Projetos
-</h3>
-
-<p style="color:#9ca3af">
-IA revisa documentos técnicos automaticamente.
-</p>
-
-</div>
-
-<div style="background:#111827; padding:25px; border-radius:12px">
-
-<h3 style="font-weight:600; margin-bottom:10px">
-Inspeções Inteligentes
-</h3>
-
-<p style="color:#9ca3af">
-Detecte inconsistências em plantas e relatórios.
-</p>
-
-</div>
-
-<div style="background:#111827; padding:25px; border-radius:12px">
-
-<h3 style="font-weight:600; margin-bottom:10px">
-Automação
-</h3>
-
-<p style="color:#9ca3af">
-Reduza horas de revisão manual.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
 
 <!-- FOOTER -->
 
-<footer style="padding:40px; text-align:center; color:#6b7280">
+<footer class="border-t border-white/5 py-10 text-center text-white/30 text-sm">
 
-© 2026 Inspecta
+<img src="/inspecta-logo-final.svg" class="h-9 mx-auto mb-4 opacity-40"/>
+
+<p>© 2026 Inspecta. Todos os direitos reservados.</p>
 
 </footer>
 

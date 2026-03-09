@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/login",
-      "destination": "https://github-chat-revival.vercel.app",
+      "source": "/",
+      "destination": "/login",
       "permanent": false
     }
   ]
